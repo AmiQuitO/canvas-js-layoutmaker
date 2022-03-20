@@ -78,6 +78,7 @@ function saveBoard(){
 document.querySelector("#finish").addEventListener("click", function (){
     saveBoard();
     savefile = document.querySelector("#saved_content");
+    savefile.innerHTML = "";
     let x = 0;
     savefile.innerHTML += "[<br>";
     for(let i=0; i<h; i++){
