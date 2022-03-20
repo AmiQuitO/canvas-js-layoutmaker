@@ -17,7 +17,7 @@ document.querySelector("#begin").addEventListener("click", function (){
     for(let i=0; i<h; i++){
         map[i] = [];
         for(let j=0; j<w; j++){
-            map[i][j] = ["floor", "#252525", 0, undefined];
+            map[i][j] = ["floor", "#252525", 0, null];
         }
     }
     setBoard();
@@ -66,7 +66,24 @@ function saveBoard(){
     let x = 0;
     for(let i=0; i<h;i++){
         for(let j=0;j<w;j++){
-            map[i][j][typeofoperation] = document.querySelector(`#tile${x}`).value;
+            let tile = document.querySelector(`#tile${x}`).value;
+
+            // quality of life
+            if(typeofoperation == 0 && tile == "wall")
+                map[i][j][2] = 2;
+            if(typeofoperation == 0 && tile == "void"){
+                map[i][j][2] = 0;
+                map[i][j][1] = "#222222";
+            }
+
+            // saveing different types of data
+            if(!isNaN(tile)){
+                tile = parseInt(tile);
+            }
+            if(tile === "null"){
+                tile = null;
+            }
+            map[i][j][typeofoperation] = tile;
             x++;
         }
     }
