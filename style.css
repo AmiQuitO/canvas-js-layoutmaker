@@ -7,17 +7,23 @@
     font-family: monospace;
 }
 main{
-    width: 500px;
-    height: 500px;
-
+    min-width: 600px;
+    min-height: 500px;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 input{
     width: 100px;
     height: 30px;
 }
 #board{
-    width: 100%;
+    border: 1px solid white;
+    display: block;
+    min-width: 500px;
+    min-height: 500px;
     text-align: center;
 }
 .tiles{
@@ -27,11 +33,26 @@ input{
     height: 50px;
     overflow: hidden;
 }
+#nav{
+    width: 100px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#nav button{
+    width: 100px;
+    height: 70px;
+}
 #panel{
     width: 100%;
+    height: 100px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
     align-items: center;
     flex-wrap: wrap;
 }

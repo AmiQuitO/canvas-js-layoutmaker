@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logov1.png">
+    <title>Philosopher's tale dungeon layout maker</title>
 </head>
 <body>
     <main>
         <div id="board">
 
         </div>
+        <div id="nav">
+            <button id="type">TYPE</button>
+            <button id="color">COLOR</button>
+            <button id="height">HEIGHT</button>
+            <button id="prop">PROP<br>(optional)</button>
+        </div>
         <div id="panel">
-            Width: <input type="text" value="10" id="a">
-            Height: <input type="text" value="10" id="b">
-            <button id="generate">Generate</button>
-            <button id="save">Save</button>
+            Width: <input type="text" value="10" id="w">
+            Height: <input type="text" value="10" id="h">
+            <button id="begin">START</button>
+            <button id="finish">FINISH</button>
         </div>
         <div id="saved_content"></div>
     </main>
