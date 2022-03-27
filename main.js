@@ -45,6 +45,18 @@ document.querySelector("#prop").addEventListener("click", function(){
 }, true);
 
 function clearTile(tile){
+    if(typeofoperation == 0){
+        if(tile.value == "floor"){
+            tile.value = "wall";
+        }
+        else    if(tile.value == "wall"){
+            tile.value = "void";
+        }
+        else if(tile.value == "void"){
+            tile.value= "floor";
+        }
+        return;
+    }
     tile.value = "";
 }
 
@@ -96,6 +108,34 @@ document.querySelector("#finish").addEventListener("click", function (){
     saveBoard();
     savefile = document.querySelector("#saved_content");
     savefile.innerHTML = "";
-    const FMAP = JSON.stringify(map);
-    savefile.innerHTML = FMAP;
+    savefile.innerHTML += "[";
+    for(let i=0; i<h; i++){
+        savefile.innerHTML += "[";
+        for(let j=0; j<w; j++){
+            console.log("sussy");
+            savefile.innerHTML += "[";
+            for(let k=0; k<4;k++){
+                a = map[i][j][k];
+                // if not a number put ""
+                if(isNaN(a) && a != null && a != "null")
+                    a = '"'+ a + '"';
+                if(k == 3){
+                    savefile.innerHTML += a;
+                    continue;
+                }
+                savefile.innerHTML += a + ", ";
+            }
+            if(j == w-1){
+                savefile.innerHTML += "]<br>";
+                continue;
+            }
+            savefile.innerHTML += "],";
+        }
+        if(i == h-1){
+            savefile.innerHTML += "]";
+            continue;
+        }
+        savefile.innerHTML += "],";
+    }
+    savefile.innerHTML += "],";
 }, true);
