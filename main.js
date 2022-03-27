@@ -57,6 +57,15 @@ function clearTile(tile){
         }
         return;
     }
+    if(typeofoperation == 2){
+        if(tile.value == 0){
+            tile.value = "";
+        }
+        if(!tile.value == 0){
+            tile.value = 0;
+            return;
+        }
+    }
     tile.value = "";
 }
 
@@ -67,7 +76,7 @@ function setBoard(){
     let x = 0;
     for(let i=0; i<h;i++){
         for(let j=0;j<w;j++){
-            BOARD.innerHTML += `<input type='text' value='${map[i][j][typeofoperation]}' class='tiles' onfocus='clearTile(this)' id='tile${x}'>`;
+            BOARD.innerHTML += `<input type='text' value='${map[i][j][typeofoperation]}' class='tiles' onclick='clearTile(this)' id='tile${x}'>`;
             x++;
         }
         BOARD.innerHTML += "<br>";
@@ -126,13 +135,13 @@ document.querySelector("#finish").addEventListener("click", function (){
                 savefile.innerHTML += a + ", ";
             }
             if(j == w-1){
-                savefile.innerHTML += "]<br>";
+                savefile.innerHTML += "]";
                 continue;
             }
             savefile.innerHTML += "],";
         }
         if(i == h-1){
-            savefile.innerHTML += "]";
+            savefile.innerHTML += "]<br>";
             continue;
         }
         savefile.innerHTML += "],";
