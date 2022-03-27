@@ -141,10 +141,10 @@ document.querySelector("#finish").addEventListener("click", function (){
             savefile.innerHTML += "],";
         }
         if(i == h-1){
-            savefile.innerHTML += "]<br>";
+            savefile.innerHTML += "]";
             continue;
         }
-        savefile.innerHTML += "],";
+        savefile.innerHTML += "],<br>";
     }
     savefile.innerHTML += "],";
 }, true);
